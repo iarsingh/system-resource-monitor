@@ -62,3 +62,7 @@ PYTHONPATH=src uvicorn monitor.main:app --reload
 | `POST /check/series` | `samples` (1 to 1440), optional `window` (1 to 60) and `thresholds` |
 
 A reading outside 0 to 100, a missing resource, or a value that is not a number is refused. The check does not read a live host and does not page anyone: `paged` is always false.
+
+## Ops plane
+
+Workspaces, tenant isolation, job approval, and audit live under `/v1`. Production apply is refused. See `docs/ARCHITECTURE.md`.

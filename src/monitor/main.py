@@ -1,9 +1,11 @@
+from monitor.ops import router as ops_router
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 from monitor.check import ReadingError, check, sustained
 
 app = FastAPI()
+app.include_router(ops_router, prefix="/v1")
 
 
 class Series(BaseModel):
