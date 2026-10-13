@@ -1,5 +1,12 @@
 # System Resource Monitor
 
+## Overview
+
+A beginner Python service that checks CPU, memory and disk percentages against thresholds (90 by default). `POST /check` judges a single reading, while `POST /check/series` fires only after a run of consecutive breaches (3 by default) and stays firing until a reading drops 10 points below the threshold, so a value hovering near the limit does not flap. Readings outside 0 to 100, missing resources and non-numeric values are refused.
+
+- **Built with:** Python, uvicorn, pytest, GitHub Actions
+- **Scope:** Python fundamentals exercise; it does not read a live host and never pages anyone.
+
 <!-- project-guide:start -->
 ## Project guide
 
